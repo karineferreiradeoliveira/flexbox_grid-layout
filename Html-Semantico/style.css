@@ -1,0 +1,97 @@
+body, /*reseta as configurções, tambem pode usar *{} para zerar tudo*/
+ul,
+li,
+p{
+    margin: 0;
+    padding: 0;
+    list-style: none; /*tira o marcador da lista do menu*/
+    font-size: 1.2em;
+    font-family: Arial;
+    
+
+}
+
+body{
+    margin-bottom: 100px;
+}
+
+a{
+    text-decoration: none; /*tira o azul do link*/
+    color: white; /*cor do texto*/
+}
+h1{
+    text-align: center;
+}
+
+img{
+    max-width: 100%;/*aumentar o tamanho no maximo do tamanho do conteiner*/
+    display: block;/*não ultrapassa o tamanho*/
+}
+.header{
+    background-color: black; /*cor do fundo */
+    display: flex; /*tira da pilha e coloca em fila*/
+    flex-wrap: wrap; /*no responsivo os itens quebram na sequencia do html, indica que esse item pode quebrar, no caso de imagens podem ir para segunda linha e sequencialmente*/
+    justify-content: space-between; /*espaço entre os itens*/
+    align-items: center; /*alinha a logo com os itens do menu*/
+    padding: 20px; /*espaçamento entre itens*/
+}
+
+.menu ul{/*precisei colocar o ul para aceitar a propriedade flex*/
+    display: flex;
+}
+
+.menu li{
+    margin-left: 10px;/*aumentar espaçamento para click*/
+}
+    
+}
+.menu ul li a{
+    padding: 10px;/*aumentar espaçamento para click, visando acessibilidade no responsivo*/
+    
+}
+/*ATENÇÃO*/
+/*quando houver uma divisão (interação) de coluna e linha estilo site g1.com utiliza-se o grid*/
+/*para flex box são layouts que seguem o fluxo de quebra de linha automatica*/
+/*SIGA*/
+
+.flex{
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 800px;/*quero que meu conteiner tenha no máximo essa medida*/
+    margin: 0 auto;/*alinha ao centro quando passar dos 800px ou tamanho do conteiner*/
+}
+
+.flex > div{/*entrar no flex e falar com a div, utiliza o >*/
+    flex: 1 1 200px;/*tamanho limite de redução 200px*/
+    margin: 10px;
+}
+
+/*CSS Grid Layout - grid1*/
+
+.grid1{
+    display: grid;/*modo de aprensentação em grid*/
+    grid-template-columns: 1fr 1fr 1fr;/*divide as divs em 3 partes do 100%, pode ser mais partes*/
+    /*forma simplificada>>  grid-template-columns: repeat(3, 1fr);*/
+    max-width: 780px;/*tamanho limite do conteiner até redução de */
+     /*ATENÇÃO >> REDUZIR 20 PIXELS PARA ELIMINAR A MARGIN E FICAR DO MESMO TAMANHO DO FLEXBOX (CASO ESTEJAM SENDO USADOS JUNTOS*/
+    margin: 0 auto;
+    grid-gap: 20px;/*cria spaçamento entre os itens evitando uso de margin ou padding*/
+
+}
+
+.grid1 > div:nth-child(n + 4){/*entro na grid, chamo a div e escolho entre os filhos dela pelo numero, 
+    nesse caso a posição 1, para mais de um item use 
+    a formula (n + 4) vai pintar a partir do 4 item.*/
+    display: grid;
+    grid-template-columns: 1fr 1fr;/*dividir a gri em duas colunas*/
+    grid-gap: 10px;
+    align-items: center;
+}
+
+.grid1 > div.anuncio{
+    grid-column: 1;/*que eteja na coluna 1*/
+    grid-row: 2 / 5;/*que pegue as linhas do 2 ao 5, conta a linha no topo da primira imagem*/
+    display: block;
+}
+
+
